@@ -128,7 +128,7 @@ You may need to pass que a file path to require so that it can load your app. Qu
 
 ## Testing
 
-There are a couple ways to do testing. You may want to set `Que::Job.run_synchronously = true`, which will cause JobClass.enqueue to simply execute the job's logic synchronously, as if you'd run JobClass.run(*your_args). Or, you may want to leave it disabled so you can assert on the job state once they are stored in the database.
+There are a couple ways to do testing. You may want to set `Que::Job.run_synchronously = true`, which will cause JobClass.enqueue to simply execute the job's logic synchronously, as if you'd run JobClass.run(*your_args). Or, you may want to leave it disabled (or set `run_synchronously` to `false` if it was set to `true` in other tests) so you can assert on the job state once they are stored in the database.
 
 **If you're using ActiveRecord to dump your database's schema, please [set your schema_format to :sql](http://guides.rubyonrails.org/migrations.html#types-of-schema-dumps) so that Que's table structure is managed correctly.** This is a good idea regardless, as the `:ruby` schema format doesn't support many of PostgreSQL's advanced features.
 
